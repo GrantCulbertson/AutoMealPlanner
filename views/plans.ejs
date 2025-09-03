@@ -12,7 +12,8 @@
     <div class="container">
       <a class="navbar-brand fw-bold" href="/">AutoMeal Planner</a>
       <div>
-        <a class="btn btn-outline-light" href="/">New Plan</a>
+        <a class="btn btn-outline-light me-2" href="/">New Plan</a>
+        <a class="btn btn-outline-light me-2" href="/profile">Profile</a>
       </div>
     </div>
   </nav>
@@ -21,6 +22,12 @@
     <div class="row justify-content-center">
       <div class="col-lg-12 col-xl-10">
         <h3 class="mb-3">Your Weekly Grocery Lists & Meal Plans</h3>
+        <% if (message) { %>
+          <div class="alert alert-success"><%= message %></div>
+        <% } %>
+        <% if (error) { %>
+          <div class="alert alert-danger"><%= error %></div>
+        <% } %>
         <% if (!plans || plans.length === 0) { %>
           <div class="alert alert-info">No plans yet. Create one from the home page.</div>
         <% } %>
@@ -43,11 +50,30 @@
                   <ul class="list-group">
                     <% (p.plan.grocery_list || []).forEach(function(item) { %>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span><%= item.item || item.name %></span>
-                        <span class="badge bg-darkgray"><%= item.quantity || '' %></span>
+                        <% if (typeof item === 'string') { %>
+                          <span><%= item %></span>
+                          <span class="badge bg-darkgray">$--</span>
+                        <% } else { %>
+                          <span><%= item.item || item.name %></span>
+                          <div class="d-flex align-items-center">
+                            <% if (item.quantity) { %>
+                              <span class="badge bg-secondary me-2"><%= item.quantity %></span>
+                            <% } %>
+                            <span class="badge bg-darkgray">$<%= item.estimatedCost || '--' %></span>
+                          </div>
+                        <% } %>
                       </li>
                     <% }) %>
                   </ul>
+                  <% if (p.plan.totalEstimatedCost) { %>
+                    <div class="mt-3 p-3 bg-light rounded">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <strong>Total Estimated Cost:</strong>
+                        <span class="h5 text-success mb-0">$<%= p.plan.totalEstimatedCost %></span>
+                      </div>
+                      <small class="text-muted">Based on <%= p.input.groceryStore %> prices in <%= p.input.location %></small>
+                    </div>
+                  <% } %>
                 </div>
                 <div class="col-md-7">
                   <h5>Weekly Plan</h5>
@@ -62,27 +88,61 @@
                         <div id="collapse<%= p.id %>_<%= idx %>" class="accordion-collapse collapse <%= idx === 0 ? 'show' : '' %>" aria-labelledby="heading<%= p.id %>_<%= idx %>" data-bs-parent="#accordion<%= p.id %>">
                           <div class="accordion-body">
                             <div class="row">
-                              <div class="col-md-4">
-                                <div class="meal">
-                                  <div class="meal-label">Breakfast</div>
-                                  <div class="meal-title"><%= day.breakfast?.title %></div>
-                                  <div class="meal-desc"><%= day.breakfast?.instructions %></div>
+                              <% if (day.meals && Array.isArray(day.meals)) { %>
+                                <% day.meals.forEach(function(meal, mealIndex) { %>
+                                  <div class="col-md-4">
+                                    <div class="meal">
+                                      <div class="meal-label">
+                                        <% if (mealIndex === 0) { %>Breakfast<% } else if (mealIndex === 1) { %>Lunch<% } else { %>Dinner<% } %>
+                                      </div>
+                                      <div class="meal-title"><%= meal.title %></div>
+                                      <div class="meal-desc"><%= meal.instructions %></div>
+                                      <% if (meal.recipeLink) { %>
+                                        <div class="meal-link mt-2">
+                                          <a href="<%= meal.recipeLink %>" target="_blank" class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-link-45deg"></i> View Recipe
+                                          </a>
+                                        </div>
+                                      <% } %>
+                                    </div>
+                                  </div>
+                                <% }) %>
+                              <% } else { %>
+                                <!-- Fallback for old format -->
+                                <div class="col-md-4">
+                                  <div class="meal">
+                                    <div class="meal-label">Breakfast</div>
+                                    <% if (day.meals && day.meals.breakfast) { %>
+                                      <div class="meal-desc"><%= day.meals.breakfast %></div>
+                                    <% } else if (day.breakfast) { %>
+                                      <div class="meal-title"><%= day.breakfast.title %></div>
+                                      <div class="meal-desc"><%= day.breakfast.instructions %></div>
+                                    <% } %>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="meal">
-                                  <div class="meal-label">Lunch</div>
-                                  <div class="meal-title"><%= day.lunch?.title %></div>
-                                  <div class="meal-desc"><%= day.lunch?.instructions %></div>
+                                <div class="col-md-4">
+                                  <div class="meal">
+                                    <div class="meal-label">Lunch</div>
+                                    <% if (day.meals && day.meals.lunch) { %>
+                                      <div class="meal-desc"><%= day.meals.lunch %></div>
+                                    <% } else if (day.lunch) { %>
+                                      <div class="meal-title"><%= day.lunch.title %></div>
+                                      <div class="meal-desc"><%= day.lunch.instructions %></div>
+                                    <% } %>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="meal">
-                                  <div class="meal-label">Dinner</div>
-                                  <div class="meal-title"><%= day.dinner?.title %></div>
-                                  <div class="meal-desc"><%= day.dinner?.instructions %></div>
+                                <div class="col-md-4">
+                                  <div class="meal">
+                                    <div class="meal-label">Dinner</div>
+                                    <% if (day.meals && day.meals.dinner) { %>
+                                      <div class="meal-desc"><%= day.meals.dinner %></div>
+                                    <% } else if (day.dinner) { %>
+                                      <div class="meal-title"><%= day.dinner.title %></div>
+                                      <div class="meal-desc"><%= day.dinner.instructions %></div>
+                                    <% } %>
+                                  </div>
                                 </div>
-                              </div>
+                              <% } %>
                             </div>
                           </div>
                         </div>
@@ -90,6 +150,13 @@
                     <% }) %>
                   </div>
                 </div>
+              </div>
+              <div class="card-footer bg-light">
+                <form action="/delete-plan/<%= p.id %>" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this meal plan?')">
+                  <button type="submit" class="btn btn-outline-danger btn-sm">
+                    <i class="bi bi-trash"></i> Delete Meal Plan
+                  </button>
+                </form>
               </div>
             </div>
           </div>

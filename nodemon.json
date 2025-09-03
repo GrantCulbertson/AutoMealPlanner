@@ -1,0 +1,7 @@
+{
+  "ignore": [
+    "data/*",
+    "tunnel-url.txt"
+  ],
+  "ext": "js,json,ejs,css"
+}
