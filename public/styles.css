@@ -1,0 +1,29 @@
+:root {
+  --sage: #88a17a;
+  --darkgray: #2f2f2f;
+  --bg: #f7f8f7;
+}
+
+.bg-body { background-color: var(--bg); }
+.bg-sage { background-color: var(--sage) !important; }
+.bg-darkgray { background-color: var(--darkgray) !important; }
+
+.btn-sage {
+  background-color: var(--sage);
+  color: #fff;
+  border: none;
+}
+.btn-sage:hover { filter: brightness(0.95); color: #fff; }
+
+.navbar-dark.bg-darkgray .navbar-brand { color: #fff; }
+
+.card-header.bg-sage { color: #fff; }
+
+.meal { padding: .5rem 0; border-bottom: 1px dashed #ddd; }
+.meal:last-child { border-bottom: none; }
+.meal-label { font-size: .8rem; text-transform: uppercase; color: var(--sage); font-weight: 700; }
+.meal-title { font-weight: 600; }
+.meal-desc { font-size: .9rem; color: #555; }
+
+.list-group-item { display: flex; align-items: center; }
+
