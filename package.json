@@ -1,0 +1,33 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "This app integrates with ChatGPT to provide custom meal plans based on your preferred grocery store, foods, and tools in your kitchen.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "ENABLE_TUNNEL=true nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrantCulbertson/AutoMealPlanner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GrantCulbertson/AutoMealPlanner/issues"
+  },
+  "homepage": "https://github.com/GrantCulbertson/AutoMealPlanner#readme",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "dotenv": "^17.2.2",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "groq-sdk": "^0.31.0",
+    "openai": "^5.19.1"
+  },
+  "devDependencies": {
+    "localtunnel": "^2.0.2",
+    "nodemon": "^3.1.10"
+  }
+}
