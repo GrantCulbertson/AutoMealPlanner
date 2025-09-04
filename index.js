@@ -97,7 +97,8 @@ app.post('/generate', async (req, res) => {
     kitchenAppliances: profile.kitchenAppliances || '',
     cookingNotes: profile.cookingNotes || '',
     favoriteCategories: profile.favoriteCategories || '',
-    complexity: profile.complexity || 3
+    complexity: profile.complexity || 3,
+    selectedMealTypes: profile.selectedMealTypes || ['breakfast', 'lunch', 'dinner']
   };
 
   try {
@@ -141,7 +142,8 @@ app.post('/profile', (req, res) => {
     complexity: Number(req.body.complexity || 3),
     kitchenTools: (req.body.kitchenTools || '').trim(),
     kitchenAppliances: (req.body.kitchenAppliances || '').trim(),
-    cookingNotes: (req.body.cookingNotes || '').trim()
+    cookingNotes: (req.body.cookingNotes || '').trim(),
+    selectedMealTypes: Array.isArray(req.body.selectedMealTypes) ? req.body.selectedMealTypes : (req.body.selectedMealTypes ? [req.body.selectedMealTypes] : ['breakfast', 'lunch', 'dinner'])
   };
   
   writeProfile(profileData);

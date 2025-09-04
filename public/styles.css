@@ -23,7 +23,32 @@
 .meal:last-child { border-bottom: none; }
 .meal-label { font-size: .8rem; text-transform: uppercase; color: var(--sage); font-weight: 700; }
 .meal-title { font-weight: 600; }
+.meal-category { margin: 0.25rem 0; }
+.meal-category .badge { font-size: 0.7rem; }
 .meal-desc { font-size: .9rem; color: #555; }
 
 .list-group-item { display: flex; align-items: center; }
+
+.grocery-category h6 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 0.25rem;
+}
+
+.grocery-category .list-group-item {
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+
+.grocery-category .list-group-item:first-child {
+  border-top: none;
+}
+
+.grocery-category .list-group-item:last-child {
+  border-bottom: none;
+}
 

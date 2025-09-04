@@ -47,24 +47,82 @@
               <div class="row g-4">
                 <div class="col-md-5">
                   <h5>Grocery List</h5>
-                  <ul class="list-group">
-                    <% (p.plan.grocery_list || []).forEach(function(item) { %>
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <% if (typeof item === 'string') { %>
-                          <span><%= item %></span>
-                          <span class="badge bg-darkgray">$--</span>
-                        <% } else { %>
-                          <span><%= item.item || item.name %></span>
-                          <div class="d-flex align-items-center">
-                            <% if (item.quantity) { %>
-                              <span class="badge bg-secondary me-2"><%= item.quantity %></span>
-                            <% } %>
-                            <span class="badge bg-darkgray">$<%= item.estimatedCost || '--' %></span>
-                          </div>
-                        <% } %>
-                      </li>
-                    <% }) %>
-                  </ul>
+                  <% 
+                    // Group groceries by category
+                    const groceryCategories = {
+                      'Produce': [],
+                      'Meat & Seafood': [],
+                      'Dairy & Eggs': [],
+                      'Pantry & Staples': [],
+                      'Frozen': [],
+                      'Bakery': [],
+                      'Other': []
+                    };
+                    
+                    (p.plan.grocery_list || []).forEach(function(item) {
+                      if (typeof item === 'string') {
+                        groceryCategories['Other'].push({ name: item, quantity: '', cost: '--' });
+                      } else {
+                        const itemName = (item.item || item.name || '').toLowerCase();
+                        let category = 'Other';
+                        
+                        // Categorize items based on common patterns
+                        if (itemName.includes('chicken') || itemName.includes('beef') || itemName.includes('pork') || 
+                            itemName.includes('turkey') || itemName.includes('salmon') || itemName.includes('fish') ||
+                            itemName.includes('meat') || itemName.includes('bacon') || itemName.includes('sausage')) {
+                          category = 'Meat & Seafood';
+                        } else if (itemName.includes('milk') || itemName.includes('cheese') || itemName.includes('yogurt') ||
+                                   itemName.includes('butter') || itemName.includes('cream') || itemName.includes('eggs') ||
+                                   itemName.includes('dairy')) {
+                          category = 'Dairy & Eggs';
+                        } else if (itemName.includes('apple') || itemName.includes('banana') || itemName.includes('orange') ||
+                                   itemName.includes('tomato') || itemName.includes('onion') || itemName.includes('garlic') ||
+                                   itemName.includes('pepper') || itemName.includes('carrot') || itemName.includes('broccoli') ||
+                                   itemName.includes('spinach') || itemName.includes('lettuce') || itemName.includes('cucumber') ||
+                                   itemName.includes('avocado') || itemName.includes('lime') || itemName.includes('lemon') ||
+                                   itemName.includes('cilantro') || itemName.includes('herb') || itemName.includes('vegetable') ||
+                                   itemName.includes('fruit') || itemName.includes('produce')) {
+                          category = 'Produce';
+                        } else if (itemName.includes('bread') || itemName.includes('tortilla') || itemName.includes('pasta') ||
+                                   itemName.includes('rice') || itemName.includes('oats') || itemName.includes('flour') ||
+                                   itemName.includes('cereal') || itemName.includes('cracker') || itemName.includes('bun')) {
+                          category = 'Pantry & Staples';
+                        } else if (itemName.includes('frozen') || itemName.includes('ice cream')) {
+                          category = 'Frozen';
+                        } else if (itemName.includes('bread') || itemName.includes('bagel') || itemName.includes('muffin') ||
+                                   itemName.includes('croissant')) {
+                          category = 'Bakery';
+                        }
+                        
+                        groceryCategories[category].push({
+                          name: item.item || item.name,
+                          quantity: item.quantity || '',
+                          cost: item.estimatedCost || '--'
+                        });
+                      }
+                    });
+                  %>
+                  
+                  <% Object.keys(groceryCategories).forEach(function(category) { %>
+                    <% if (groceryCategories[category].length > 0) { %>
+                      <div class="grocery-category mb-3">
+                        <h6 class="text-muted mb-2"><%= category %></h6>
+                        <ul class="list-group list-group-flush">
+                          <% groceryCategories[category].forEach(function(item) { %>
+                            <li class="list-group-item d-flex justify-content-between align-items-center py-2">
+                              <span><%= item.name %></span>
+                              <div class="d-flex align-items-center">
+                                <% if (item.quantity) { %>
+                                  <span class="badge bg-secondary me-2"><%= item.quantity %></span>
+                                <% } %>
+                                <span class="badge bg-darkgray">$<%= item.cost %></span>
+                              </div>
+                            </li>
+                          <% }) %>
+                        </ul>
+                      </div>
+                    <% } %>
+                  <% }) %>
                   <% if (p.plan.totalEstimatedCost) { %>
                     <div class="mt-3 p-3 bg-light rounded">
                       <div class="d-flex justify-content-between align-items-center">
@@ -89,13 +147,25 @@
                           <div class="accordion-body">
                             <div class="row">
                               <% if (day.meals && Array.isArray(day.meals)) { %>
+                                <% 
+                                  const mealTypes = p.input.selectedMealTypes || ['breakfast', 'lunch', 'dinner'];
+                                  const colClass = mealTypes.length === 1 ? 'col-12' : mealTypes.length === 2 ? 'col-md-6' : 'col-md-4';
+                                %>
                                 <% day.meals.forEach(function(meal, mealIndex) { %>
-                                  <div class="col-md-4">
+                                  <div class="<%= colClass %>">
                                     <div class="meal">
                                       <div class="meal-label">
-                                        <% if (mealIndex === 0) { %>Breakfast<% } else if (mealIndex === 1) { %>Lunch<% } else { %>Dinner<% } %>
+                                        <% 
+                                          const mealType = mealTypes[mealIndex] || 'meal';
+                                        %>
+                                        <%= mealType.charAt(0).toUpperCase() + mealType.slice(1) %>
                                       </div>
                                       <div class="meal-title"><%= meal.title %></div>
+                                      <% if (meal.category) { %>
+                                        <div class="meal-category">
+                                          <span class="badge bg-primary"><%= meal.category %></span>
+                                        </div>
+                                      <% } %>
                                       <div class="meal-desc"><%= meal.instructions %></div>
                                       <% if (meal.recipeLink) { %>
                                         <div class="meal-link mt-2">

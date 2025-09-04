@@ -1,7 +1,7 @@
 [
   {
-    "id": "1756935385935",
-    "createdAt": "2025-09-03T21:36:25.935Z",
+    "id": "1757020200702",
+    "createdAt": "2025-09-04T21:10:00.702Z",
     "input": {
       "location": "Hyde Park, Chicago",
       "groceryStore": "Trader Joe's",
@@ -11,19 +11,22 @@
       "kitchenAppliances": "Rice cooker, oven, microwave, crockpot.",
       "cookingNotes": "I prefer meals that can be made with 1-2 pans and take around an hour to cook. I am also okay with meals that are simple to prepare but need to simmer all day in my dutch oven or crockpot for example.",
       "favoriteCategories": "Mexican, Asian, Italian, and Scandinavian.",
-      "complexity": 5
+      "complexity": 5,
+      "selectedMealTypes": [
+        "dinner"
+      ]
     },
     "plan": {
       "grocery_list": [
         {
           "item": "chicken breast",
           "quantity": "2 lb",
-          "estimatedCost": 9
+          "estimatedCost": 9.98
         },
         {
           "item": "brown rice",
           "quantity": "2 lb",
-          "estimatedCost": 3
+          "estimatedCost": 3.98
         },
         {
           "item": "black beans",
@@ -33,17 +36,27 @@
         {
           "item": "bell peppers",
           "quantity": "3",
-          "estimatedCost": 3
+          "estimatedCost": 2.49
         },
         {
           "item": "onion",
-          "quantity": "2",
-          "estimatedCost": 1
+          "quantity": "1",
+          "estimatedCost": 0.99
         },
         {
           "item": "garlic",
           "quantity": "1 bulb",
           "estimatedCost": 0.5
+        },
+        {
+          "item": "canned tomatoes",
+          "quantity": "2 cans",
+          "estimatedCost": 2
+        },
+        {
+          "item": "ground beef",
+          "quantity": "1 lb",
+          "estimatedCost": 5.99
         },
         {
           "item": "taco seasoning",
@@ -53,27 +66,22 @@
         {
           "item": "tortillas",
           "quantity": "1 pack",
-          "estimatedCost": 2
-        },
-        {
-          "item": "ground turkey",
-          "quantity": "1 lb",
-          "estimatedCost": 6
+          "estimatedCost": 2.49
         },
         {
           "item": "soy sauce",
           "quantity": "1 bottle",
-          "estimatedCost": 3
+          "estimatedCost": 2
         },
         {
           "item": "broccoli",
           "quantity": "1 lb",
-          "estimatedCost": 2
+          "estimatedCost": 1.99
         },
         {
           "item": "carrots",
           "quantity": "1 lb",
-          "estimatedCost": 1
+          "estimatedCost": 0.99
         },
         {
           "item": "ginger",
@@ -81,192 +89,114 @@
           "estimatedCost": 0.5
         },
         {
-          "item": "coconut milk",
-          "quantity": "1 can",
-          "estimatedCost": 2
+          "item": "egg",
+          "quantity": "1 dozen",
+          "estimatedCost": 2.99
         },
         {
-          "item": "curry powder",
-          "quantity": "1 packet",
-          "estimatedCost": 1
+          "item": "parmesan cheese",
+          "quantity": "8 oz",
+          "estimatedCost": 3.99
         },
         {
           "item": "spinach",
           "quantity": "1 bag",
-          "estimatedCost": 2
-        },
-        {
-          "item": "parmesan cheese",
-          "quantity": "1 cup",
-          "estimatedCost": 3
+          "estimatedCost": 2.49
         },
         {
           "item": "pasta",
           "quantity": "1 lb",
-          "estimatedCost": 2
+          "estimatedCost": 1.5
         },
         {
-          "item": "salmon",
-          "quantity": "1 lb",
-          "estimatedCost": 10
+          "item": "salsa",
+          "quantity": "1 jar",
+          "estimatedCost": 2.49
         },
         {
-          "item": "lemon",
-          "quantity": "2",
-          "estimatedCost": 1
-        },
-        {
-          "item": "cucumber",
-          "quantity": "1",
-          "estimatedCost": 0.5
-        },
-        {
-          "item": "avocado",
-          "quantity": "2",
-          "estimatedCost": 2
+          "item": "coconut milk",
+          "quantity": "1 can",
+          "estimatedCost": 1.99
         }
       ],
       "weekly_plan": [
         {
           "meals": [
             {
+              "title": "Chicken Fajitas",
+              "category": "Mexican",
+              "instructions": "Slice chicken breast and bell peppers. Sauté in a skillet with onion, garlic, and taco seasoning until cooked through. Serve in tortillas with salsa and spinach.",
+              "recipeLink": "https://www.allrecipes.com/recipe/228091/chicken-fajitas/"
+            }
+          ]
+        },
+        {
+          "meals": [
+            {
+              "title": "Beef Stir-Fry",
+              "category": "Asian",
+              "instructions": "Cook sliced beef in a skillet until browned. Add broccoli, carrots, and ginger; stir-fry with soy sauce until vegetables are tender. Serve over brown rice.",
+              "recipeLink": "https://www.foodnetwork.com/recipes/food-network-kitchen/beef-stir-fry-recipe-2011551"
+            }
+          ]
+        },
+        {
+          "meals": [
+            {
+              "title": "Vegetable Coconut Curry",
+              "category": "Asian",
+              "instructions": "In a dutch oven, sauté garlic and onion, add canned tomatoes and coconut milk. Stir in chopped vegetables and simmer until tender. Serve with brown rice.",
+              "recipeLink": "https://www.bonappetit.com/recipe/vegetable-coconut-curry"
+            }
+          ]
+        },
+        {
+          "meals": [
+            {
+              "title": "Spaghetti Aglio e Olio",
+              "category": "Italian",
+              "instructions": "Cook spaghetti according to package instructions. In a skillet, sauté garlic in olive oil, toss with pasta, and finish with parmesan cheese and parsley.",
+              "recipeLink": "https://www.seriouseats.com/spaghetti-aglio-e-olio-recipe"
+            }
+          ]
+        },
+        {
+          "meals": [
+            {
               "title": "Chicken Tacos",
-              "instructions": "Season chicken breast with taco seasoning and cook in a skillet over medium heat for 20 minutes until cooked through. Warm tortillas in a separate pan. Serve chicken in tortillas with diced bell peppers and onions.",
+              "category": "Mexican",
+              "instructions": "Shred cooked chicken and mix with black beans and taco seasoning. Serve in tortillas with diced bell peppers and salsa.",
               "recipeLink": "https://www.allrecipes.com/recipe/21412/chicken-tacos/"
-            },
-            {
-              "title": "Black Bean Salad",
-              "instructions": "Combine black beans, diced bell peppers, onion, and avocado in a bowl. Drizzle with lime juice and toss to combine. Serve chilled or at room temperature.",
-              "recipeLink": "https://www.foodnetwork.com/recipes/black-bean-salad-recipe-194181"
-            },
-            {
-              "title": "One-Pan Chicken and Rice",
-              "instructions": "In a dutch oven, sauté onion and garlic until fragrant. Add chicken, brown rice, and chicken broth. Simmer for 30 minutes until rice is tender and chicken is cooked through.",
-              "recipeLink": "https://www.bonappetit.com/recipe/one-pan-chicken-and-rice"
             }
           ]
         },
         {
           "meals": [
             {
-              "title": "Breakfast Fried Rice",
-              "instructions": "In a skillet, sauté diced carrots and broccoli until tender. Add cooked rice and soy sauce, stir-fry for 5 minutes. Push to the side and scramble eggs in the same pan.",
-              "recipeLink": "https://www.seriouseats.com/breakfast-fried-rice"
-            },
-            {
-              "title": "Turkey Stir-Fry",
-              "instructions": "In a skillet, cook ground turkey until browned. Add bell peppers, onion, and ginger, stir-fry for 10 minutes. Serve with rice or noodles.",
-              "recipeLink": "https://www.foodnetwork.com/recipes/ground-turkey-stir-fry-recipe-211988"
-            },
-            {
-              "title": "Coconut Curry Salmon",
-              "instructions": "In a skillet, combine coconut milk and curry powder, simmer for 5 minutes. Add salmon fillets and cook for 10-12 minutes until flaky. Serve with rice.",
-              "recipeLink": "https://www.allrecipes.com/recipe/23925/coconut-curry-salmon/"
+              "title": "Broccoli and Cheese Pasta",
+              "category": "Italian",
+              "instructions": "Cook pasta and steam broccoli. In a skillet, combine cooked pasta, broccoli, and parmesan cheese until melted and creamy. Serve warm.",
+              "recipeLink": "https://www.foodnetwork.com/recipes/food-network-kitchen/broccoli-and-cheese-pasta-recipe-2011552"
             }
           ]
         },
         {
           "meals": [
             {
-              "title": "Spinach and Cheese Omelette",
-              "instructions": "Whisk eggs and pour into a hot skillet. Add spinach and cheese, cook until set. Fold and serve warm.",
-              "recipeLink": "https://www.foodnetwork.com/recipes/spinach-and-cheese-omelet-recipe-194181"
-            },
-            {
-              "title": "Cucumber Avocado Salad",
-              "instructions": "Slice cucumber and avocado, toss with lemon juice and season with salt and pepper. Serve chilled as a refreshing side.",
-              "recipeLink": "https://www.seriouseats.com/cucumber-avocado-salad"
-            },
-            {
-              "title": "Pasta Primavera",
-              "instructions": "Cook pasta according to package instructions. In a skillet, sauté seasonal vegetables until tender, then toss with pasta and parmesan cheese.",
-              "recipeLink": "https://www.bonappetit.com/recipe/pasta-primavera"
-            }
-          ]
-        },
-        {
-          "meals": [
-            {
-              "title": "Overnight Oats",
-              "instructions": "Combine oats, milk, and yogurt in a jar. Add toppings like fruit or nuts, and refrigerate overnight. Enjoy cold in the morning.",
-              "recipeLink": "https://www.allrecipes.com/recipe/244250/overnight-oats/"
-            },
-            {
-              "title": "Chicken Fried Rice",
-              "instructions": "In a skillet, cook diced chicken until browned. Add cooked rice, soy sauce, and vegetables, stir-fry for 5-7 minutes until heated through.",
-              "recipeLink": "https://www.foodnetwork.com/recipes/chicken-fried-rice-recipe-194182"
-            },
-            {
-              "title": "Stuffed Bell Peppers",
-              "instructions": "Hollow out bell peppers and fill with a mixture of cooked rice, black beans, and spices. Bake in the oven at 375°F for 25-30 minutes.",
-              "recipeLink": "https://www.seriouseats.com/stuffed-bell-peppers"
-            }
-          ]
-        },
-        {
-          "meals": [
-            {
-              "title": "Greek Yogurt with Fruit",
-              "instructions": "Serve Greek yogurt in a bowl topped with sliced fruits and a drizzle of honey. Enjoy as a quick breakfast.",
-              "recipeLink": "https://www.bonappetit.com/recipe/greek-yogurt-with-fruit"
-            },
-            {
-              "title": "Teriyaki Chicken",
-              "instructions": "Marinate chicken in teriyaki sauce, then grill or pan-sear until cooked through. Serve with steamed broccoli and rice.",
-              "recipeLink": "https://www.allrecipes.com/recipe/21353/teriyaki-chicken/"
-            },
-            {
-              "title": "Vegetable Curry",
-              "instructions": "Sauté onion and garlic, add mixed vegetables and curry powder, then stir in coconut milk. Simmer for 20 minutes and serve with rice.",
-              "recipeLink": "https://www.foodnetwork.com/recipes/vegetable-curry-recipe-194184"
-            }
-          ]
-        },
-        {
-          "meals": [
-            {
-              "title": "Avocado Toast",
-              "instructions": "Mash avocado on toasted bread, season with salt and pepper, and top with sliced tomatoes. Serve immediately.",
-              "recipeLink": "https://www.seriouseats.com/avocado-toast"
-            },
-            {
-              "title": "Asian Chicken Salad",
-              "instructions": "Combine shredded chicken, mixed greens, and sesame dressing. Toss to combine and serve chilled.",
-              "recipeLink": "https://www.bonappetit.com/recipe/asian-chicken-salad"
-            },
-            {
-              "title": "Pasta with Garlic and Olive Oil",
-              "instructions": "Cook pasta, then sauté garlic in olive oil. Toss cooked pasta with garlic oil and parsley, serve warm.",
-              "recipeLink": "https://www.seriouseats.com/pasta-with-garlic-and-olive-oil"
-            }
-          ]
-        },
-        {
-          "meals": [
-            {
-              "title": "Smoothie Bowl",
-              "instructions": "Blend yogurt, banana, and spinach, pour into a bowl, and top with granola and fruit. Enjoy cold.",
-              "recipeLink": "https://www.foodnetwork.com/recipes/smoothie-bowl-recipe-211988"
-            },
-            {
-              "title": "Quinoa and Black Bean Bowl",
-              "instructions": "Mix cooked quinoa with black beans, corn, and diced avocado. Drizzle with lime juice and serve.",
-              "recipeLink": "https://www.allrecipes.com/recipe/244250/quinoa-and-black-bean-bowl/"
-            },
-            {
-              "title": "Baked Salmon with Lemon",
-              "instructions": "Season salmon with lemon and herbs, bake at 400°F for 15-20 minutes. Serve with steamed vegetables.",
-              "recipeLink": "https://www.seriouseats.com/baked-salmon-with-lemon"
+              "title": "Egg Fried Rice",
+              "category": "Asian",
+              "instructions": "In a skillet, scramble eggs and set aside. Sauté garlic and vegetables, then add cooked rice and soy sauce, mixing well. Stir in scrambled eggs before serving.",
+              "recipeLink": "https://www.seriouseats.com/egg-fried-rice-recipe"
             }
           ]
         }
       ],
-      "totalEstimatedCost": 121
+      "totalEstimatedCost": 124.88
     }
   },
   {
-    "id": "1756935260326",
-    "createdAt": "2025-09-03T21:34:20.326Z",
+    "id": "1757020092672",
+    "createdAt": "2025-09-04T21:08:12.672Z",
     "input": {
       "location": "Hyde Park, Chicago",
       "groceryStore": "Trader Joe's",
@@ -276,24 +206,27 @@
       "kitchenAppliances": "Rice cooker, oven, microwave, crockpot.",
       "cookingNotes": "I prefer meals that can be made with 1-2 pans and take around an hour to cook. I am also okay with meals that are simple to prepare but need to simmer all day in my dutch oven or crockpot for example.",
       "favoriteCategories": "Mexican, Asian, Italian, and Scandinavian.",
-      "complexity": 3
+      "complexity": 5,
+      "selectedMealTypes": [
+        "dinner"
+      ]
     },
     "plan": {
       "grocery_list": [
         {
           "item": "chicken breast",
           "quantity": "2 lb",
-          "estimatedCost": 9
-        },
-        {
-          "item": "brown rice",
-          "quantity": "2 lb",
-          "estimatedCost": 3
+          "estimatedCost": 8
         },
         {
           "item": "black beans",
           "quantity": "2 cans",
           "estimatedCost": 2
+        },
+        {
+          "item": "brown rice",
+          "quantity": "2 lb",
+          "estimatedCost": 3
         },
         {
           "item": "bell peppers",
@@ -316,6 +249,11 @@
           "estimatedCost": 2
         },
         {
+          "item": "ground beef",
+          "quantity": "1 lb",
+          "estimatedCost": 6
+        },
+        {
           "item": "taco seasoning",
           "quantity": "1 packet",
           "estimatedCost": 1
@@ -326,18 +264,13 @@
           "estimatedCost": 2
         },
         {
-          "item": "ground turkey",
-          "quantity": "1 lb",
-          "estimatedCost": 6
-        },
-        {
           "item": "soy sauce",
           "quantity": "1 bottle",
           "estimatedCost": 2
         },
         {
           "item": "broccoli",
-          "quantity": "1 lb",
+          "quantity": "1 head",
           "estimatedCost": 2
         },
         {
@@ -351,13 +284,13 @@
           "estimatedCost": 0.5
         },
         {
-          "item": "eggs",
-          "quantity": "1 dozen",
-          "estimatedCost": 3
+          "item": "coconut milk",
+          "quantity": "1 can",
+          "estimatedCost": 2
         },
         {
-          "item": "spinach",
-          "quantity": "1 bag",
+          "item": "spaghetti",
+          "quantity": "1 lb",
           "estimatedCost": 2
         },
         {
@@ -366,19 +299,214 @@
           "estimatedCost": 3
         },
         {
+          "item": "ground turkey",
+          "quantity": "1 lb",
+          "estimatedCost": 5
+        },
+        {
+          "item": "zucchini",
+          "quantity": "2",
+          "estimatedCost": 2
+        },
+        {
+          "item": "spinach",
+          "quantity": "1 bag",
+          "estimatedCost": 2
+        },
+        {
+          "item": "cumin",
+          "quantity": "1 bottle",
+          "estimatedCost": 2
+        }
+      ],
+      "weekly_plan": [
+        {
+          "meals": [
+            {
+              "title": "Chicken Fajitas",
+              "category": "Mexican",
+              "instructions": "Slice chicken breast and bell peppers. Sauté in a skillet with onion, garlic, and taco seasoning for 15-20 minutes. Serve in tortillas with your choice of toppings.",
+              "recipeLink": "https://www.allrecipes.com/recipe/228293/chicken-fajitas/"
+            }
+          ]
+        },
+        {
+          "meals": [
+            {
+              "title": "Beef and Broccoli Stir-Fry",
+              "category": "Asian",
+              "instructions": "In a skillet, brown ground beef, then add broccoli and carrots. Stir in soy sauce and ginger, cooking for 10-15 minutes until veggies are tender. Serve over brown rice.",
+              "recipeLink": "https://www.foodnetwork.com/recipes/food-network-kitchen/beef-and-broccoli-recipe-2011625"
+            }
+          ]
+        },
+        {
+          "meals": [
+            {
+              "title": "Spaghetti Aglio e Olio",
+              "category": "Italian",
+              "instructions": "Cook spaghetti according to package instructions. In a skillet, sauté garlic in olive oil, add cooked spaghetti, and toss with parmesan cheese and parsley. Serve hot.",
+              "recipeLink": "https://www.seriouseats.com/spaghetti-aglio-e-olio-recipe"
+            }
+          ]
+        },
+        {
+          "meals": [
+            {
+              "title": "Chicken Tacos with Black Beans",
+              "category": "Mexican",
+              "instructions": "Shred cooked chicken and mix with black beans. Fill tortillas with the mixture and top with diced onions and bell peppers. Serve with a side of rice.",
+              "recipeLink": "https://www.allrecipes.com/recipe/21353/chicken-tacos/"
+            }
+          ]
+        },
+        {
+          "meals": [
+            {
+              "title": "Coconut Curry Chicken",
+              "category": "Asian",
+              "instructions": "In a dutch oven, sauté onion and garlic, add chicken and cook until browned. Stir in coconut milk and spices, simmer for 30 minutes. Serve with rice.",
+              "recipeLink": "https://www.bonappetit.com/recipe/coconut-chicken-curry"
+            }
+          ]
+        },
+        {
+          "meals": [
+            {
+              "title": "Zucchini and Ground Turkey Skillet",
+              "category": "Italian",
+              "instructions": "In a skillet, brown ground turkey, add diced zucchini, and cook until tender. Season with garlic and spices, serve warm.",
+              "recipeLink": "https://www.foodnetwork.com/recipes/ground-turkey-zucchini-skillet-recipe-2110207"
+            }
+          ]
+        },
+        {
+          "meals": [
+            {
+              "title": "Vegetable Stir-Fry",
+              "category": "Asian",
+              "instructions": "Sauté a mix of broccoli, carrots, and bell peppers in a skillet with soy sauce and ginger. Serve over brown rice for a quick meal.",
+              "recipeLink": "https://www.seriouseats.com/vegetable-stir-fry-recipe"
+            }
+          ]
+        }
+      ],
+      "totalEstimatedCost": 61
+    }
+  },
+  {
+    "id": "1757019818040",
+    "createdAt": "2025-09-04T21:03:38.040Z",
+    "input": {
+      "location": "Hyde Park, Chicago",
+      "groceryStore": "Trader Joe's",
+      "weeklyBudgetUsd": 125,
+      "mealsRequested": "high-protein",
+      "kitchenTools": "Pans: 6 quart dutch oven, 12 inch stainless steel skillet, 7.5 inch stainless steel skillet, stainless steel stockpot, stainless steel sauce pan.\r\n\r\nKitchen Tools: Knives, garlic press, can opener.",
+      "kitchenAppliances": "Rice cooker, oven, microwave, crockpot.",
+      "cookingNotes": "I prefer meals that can be made with 1-2 pans and take around an hour to cook. I am also okay with meals that are simple to prepare but need to simmer all day in my dutch oven or crockpot for example.",
+      "favoriteCategories": "Mexican, Asian, Italian, and Scandinavian.",
+      "complexity": 5,
+      "selectedMealTypes": [
+        "dinner"
+      ]
+    },
+    "plan": {
+      "grocery_list": [
+        {
+          "item": "chicken breast",
+          "quantity": "2 lb",
+          "estimatedCost": 9
+        },
+        {
+          "item": "brown rice",
+          "quantity": "2 lb",
+          "estimatedCost": 3
+        },
+        {
+          "item": "black beans",
+          "quantity": "2 cans",
+          "estimatedCost": 2
+        },
+        {
+          "item": "bell peppers",
+          "quantity": "3",
+          "estimatedCost": 3
+        },
+        {
+          "item": "onion",
+          "quantity": "2",
+          "estimatedCost": 2
+        },
+        {
+          "item": "garlic",
+          "quantity": "1 bulb",
+          "estimatedCost": 0.5
+        },
+        {
+          "item": "cumin",
+          "quantity": "1 oz",
+          "estimatedCost": 1
+        },
+        {
+          "item": "chili powder",
+          "quantity": "1 oz",
+          "estimatedCost": 1
+        },
+        {
+          "item": "soy sauce",
+          "quantity": "1 bottle",
+          "estimatedCost": 3
+        },
+        {
+          "item": "broccoli",
+          "quantity": "1 lb",
+          "estimatedCost": 2
+        },
+        {
+          "item": "carrots",
+          "quantity": "1 lb",
+          "estimatedCost": 1
+        },
+        {
+          "item": "ginger",
+          "quantity": "1 oz",
+          "estimatedCost": 0.5
+        },
+        {
+          "item": "ground turkey",
+          "quantity": "1 lb",
+          "estimatedCost": 5
+        },
+        {
+          "item": "tortillas",
+          "quantity": "1 pack",
+          "estimatedCost": 2
+        },
+        {
+          "item": "mozzarella cheese",
+          "quantity": "8 oz",
+          "estimatedCost": 3
+        },
+        {
+          "item": "spinach",
+          "quantity": "1 bag",
+          "estimatedCost": 2
+        },
+        {
           "item": "pasta",
           "quantity": "1 lb",
           "estimatedCost": 2
         },
         {
-          "item": "chicken broth",
-          "quantity": "1 quart",
+          "item": "tomato sauce",
+          "quantity": "1 jar",
           "estimatedCost": 2
         },
         {
-          "item": "cumin",
-          "quantity": "1 jar",
-          "estimatedCost": 1
+          "item": "cabbage",
+          "quantity": "1 head",
+          "estimatedCost": 2
         },
         {
           "item": "olive oil",
@@ -390,37 +518,39 @@
         {
           "meals": [
             {
-              "title": "Breakfast Burrito",
-              "instructions": "Scramble 2 eggs with spinach and diced bell peppers in a skillet. Place mixture in a tortilla, add cheese, and roll it up. Serve with salsa if desired.",
-              "recipeLink": "https://www.allrecipes.com/recipe/222618/breakfast-burrito/"
-            },
-            {
-              "title": "Chicken & Black Bean Bowl",
-              "instructions": "Cook brown rice in a rice cooker. In a skillet, sauté onions, garlic, and bell peppers. Add cooked chicken and black beans, season with taco seasoning, and serve over rice.",
-              "recipeLink": "https://www.foodnetwork.com/recipes/black-bean-chicken-bowl-3364748"
-            },
-            {
-              "title": "Mexican Chicken Soup",
-              "instructions": "In a dutch oven, combine chicken broth, diced tomatoes, black beans, and cooked chicken. Simmer for 30 minutes, season with cumin, and serve hot.",
-              "recipeLink": "https://www.seriouseats.com/mexican-chicken-soup"
+              "title": "Chicken Fajitas",
+              "category": "Mexican",
+              "instructions": "Slice chicken breast and bell peppers. Sauté in a skillet with olive oil, garlic, cumin, and chili powder until cooked through. Serve in tortillas with your choice of toppings.",
+              "recipeLink": "https://www.allrecipes.com/recipe/21412/chicken-fajitas/"
             }
           ]
         },
         {
           "meals": [
             {
-              "title": "Veggie Omelette",
-              "instructions": "Whisk 2 eggs and pour into a heated skillet. Add chopped onions, bell peppers, and spinach. Cook until set, fold, and serve with toast.",
-              "recipeLink": "https://www.foodnetwork.com/recipes/veggie-omelet-recipe-1942483"
-            },
+              "title": "Teriyaki Chicken with Broccoli",
+              "category": "Asian",
+              "instructions": "Marinate chicken in soy sauce and ginger. Cook in a skillet until done, add broccoli, and stir-fry until tender. Serve over brown rice.",
+              "recipeLink": "https://www.foodnetwork.com/recipes/teriyaki-chicken-and-broccoli-3364247"
+            }
+          ]
+        },
+        {
+          "meals": [
             {
-              "title": "Teriyaki Turkey Stir-Fry",
-              "instructions": "In a skillet, cook ground turkey until browned. Add broccoli, carrots, and soy sauce. Stir-fry until veggies are tender and serve over rice.",
-              "recipeLink": "https://www.allrecipes.com/recipe/222618/teriyaki-turkey-stir-fry/"
-            },
+              "title": "Stuffed Bell Peppers",
+              "category": "Mexican",
+              "instructions": "Mix cooked rice, black beans, diced tomatoes, and spices. Stuff into halved bell peppers and bake until peppers are tender.",
+              "recipeLink": "https://www.seriouseats.com/stuffed-bell-peppers-recipe"
+            }
+          ]
+        },
+        {
+          "meals": [
             {
               "title": "Pasta Primavera",
-              "instructions": "Cook pasta according to package instructions. In a skillet, sauté garlic, bell peppers, and broccoli. Toss with cooked pasta and parmesan cheese before serving.",
+              "category": "Italian",
+              "instructions": "Cook pasta and sauté garlic, onion, carrots, and spinach in olive oil. Toss with cooked pasta and tomato sauce. Serve hot.",
               "recipeLink": "https://www.bonappetit.com/recipe/pasta-primavera"
             }
           ]
@@ -428,100 +558,35 @@
         {
           "meals": [
             {
-              "title": "Breakfast Quinoa Bowl",
-              "instructions": "Cook quinoa in a rice cooker. Top with scrambled eggs, spinach, and diced tomatoes. Season with salt and pepper.",
-              "recipeLink": "https://www.seriouseats.com/breakfast-quinoa-bowl"
-            },
-            {
-              "title": "Chicken Fajitas",
-              "instructions": "Slice chicken and bell peppers, sauté in a skillet with taco seasoning. Serve in tortillas with toppings of choice.",
-              "recipeLink": "https://www.foodnetwork.com/recipes/chicken-fajitas-3364749"
-            },
-            {
-              "title": "Crockpot Chili",
-              "instructions": "Combine ground turkey, canned tomatoes, black beans, and spices in a crockpot. Cook on low for 6-8 hours and serve hot.",
-              "recipeLink": "https://www.allrecipes.com/recipe/240205/crockpot-chili/"
+              "title": "Cabbage Stir-Fry with Ground Turkey",
+              "category": "Asian",
+              "instructions": "Brown ground turkey in a skillet. Add sliced cabbage, carrots, and soy sauce. Stir-fry until vegetables are tender and turkey is cooked through.",
+              "recipeLink": "https://www.allrecipes.com/recipe/244678/cabbage-stir-fry/"
             }
           ]
         },
         {
           "meals": [
             {
-              "title": "Egg & Veggie Scramble",
-              "instructions": "Scramble eggs with diced bell peppers and onions in a skillet. Serve with toast or tortillas.",
-              "recipeLink": "https://www.foodnetwork.com/recipes/egg-and-veggie-scramble-3364750"
-            },
-            {
-              "title": "Asian Chicken Salad",
-              "instructions": "Toss shredded chicken with spinach, carrots, and a soy sauce dressing. Serve chilled or at room temperature.",
-              "recipeLink": "https://www.seriouseats.com/asian-chicken-salad"
-            },
-            {
-              "title": "One-Pan Pasta",
-              "instructions": "Combine pasta, diced tomatoes, garlic, and water in a skillet. Cook until pasta is al dente and sauce thickens. Serve with parmesan.",
-              "recipeLink": "https://www.bonappetit.com/recipe/one-pan-pasta"
+              "title": "Chicken and Rice Casserole",
+              "category": "American",
+              "instructions": "Combine cooked chicken, rice, broccoli, and cheese in a baking dish. Bake until heated through and cheese is melted.",
+              "recipeLink": "https://www.foodnetwork.com/recipes/chicken-and-rice-casserole-3364248"
             }
           ]
         },
         {
           "meals": [
             {
-              "title": "Chia Seed Pudding",
-              "instructions": "Combine chia seeds with almond milk and let sit overnight. Serve topped with fruit in the morning.",
-              "recipeLink": "https://www.allrecipes.com/recipe/240205/chia-seed-pudding/"
-            },
-            {
-              "title": "Stuffed Bell Peppers",
-              "instructions": "Mix cooked rice, black beans, and spices. Stuff into halved bell peppers and bake at 375°F for 30 minutes.",
-              "recipeLink": "https://www.foodnetwork.com/recipes/stuffed-bell-peppers-3364751"
-            },
-            {
-              "title": "Chicken Stir-Fry",
-              "instructions": "Sauté sliced chicken with broccoli, carrots, and soy sauce in a skillet. Serve over rice or noodles.",
-              "recipeLink": "https://www.seriouseats.com/chicken-stir-fry"
-            }
-          ]
-        },
-        {
-          "meals": [
-            {
-              "title": "Overnight Oats",
-              "instructions": "Combine oats with yogurt and milk, add toppings of choice, and refrigerate overnight. Serve cold in the morning.",
-              "recipeLink": "https://www.allrecipes.com/recipe/240205/overnight-oats/"
-            },
-            {
-              "title": "Turkey & Bean Tacos",
-              "instructions": "Fill tortillas with a mixture of cooked ground turkey, black beans, and taco seasoning. Top with cheese and serve.",
-              "recipeLink": "https://www.foodnetwork.com/recipes/turkey-and-bean-tacos-3364752"
-            },
-            {
-              "title": "Baked Chicken with Veggies",
-              "instructions": "Place chicken breasts and assorted vegetables in a dutch oven, drizzle with olive oil, season, and bake at 400°F for 30-40 minutes.",
-              "recipeLink": "https://www.seriouseats.com/baked-chicken-with-veggies"
-            }
-          ]
-        },
-        {
-          "meals": [
-            {
-              "title": "Fruit Smoothie",
-              "instructions": "Blend together yogurt, banana, and spinach until smooth. Serve chilled for breakfast.",
-              "recipeLink": "https://www.bonappetit.com/recipe/fruit-smoothie"
-            },
-            {
-              "title": "Asian Noodle Salad",
-              "instructions": "Toss cooked noodles with shredded veggies, soy sauce, and sesame oil. Serve chilled or at room temperature.",
-              "recipeLink": "https://www.seriouseats.com/asian-noodle-salad"
-            },
-            {
-              "title": "Crockpot Chicken & Rice",
-              "instructions": "Combine chicken, rice, and chicken broth in a crockpot. Cook on low for 6-8 hours and serve hot.",
-              "recipeLink": "https://www.allrecipes.com/recipe/240205/crockpot-chicken-and-rice"
+              "title": "Turkey Tacos",
+              "category": "Mexican",
+              "instructions": "Cook ground turkey with taco seasoning. Serve in tortillas with toppings like cheese, lettuce, and salsa.",
+              "recipeLink": "https://www.seriouseats.com/turkey-tacos-recipe"
             }
           ]
         }
       ],
-      "totalEstimatedCost": 124.5
+      "totalEstimatedCost": 54
     }
   }
 ]
